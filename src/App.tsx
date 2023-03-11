@@ -1,9 +1,12 @@
 import React from 'react';
+import Header from './components/Header';
 import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <h1>React Ecommerce</h1>
+    <section>
+      <Header />
+    </section>
   )
 }
 
