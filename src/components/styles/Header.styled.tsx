@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
     margin-right: 165px;
     margin-top: 20px;
 
-    .Logo, .Cart, p, img {
+    .Logo, .Cart, img {
         cursor: pointer;
     }
 
@@ -18,20 +18,37 @@ export const HeaderContainer = styled.header`
     }
 
     .Logo {
-        margin-right: 56px;
+        margin-right: 56.5px;
     }
 
-    p {
+    nav p {
         margin-left: 32px;
+        cursor: default;
+        color: var(--dark-grayish-blue);
+    } 
+    
+    nav p:hover{
+        color: black;
+        transition: 0.8s;
+    }
+
+    nav p::after{
+        content: "";
+        display: block;
+        width: auto;
+        height: 4px;
+        background-color: var(--orange);
+        margin-top: 45px;
     }
 `
 
 export const UserSection = styled.div`
     display: flex;
-    align-items: center;
+    justify-content: center;
 
     .Cart {
         margin-right: 46px;
+        margin-top: 20px;
     }
 
     img {
@@ -43,7 +60,6 @@ export const UserSection = styled.div`
 export const Divider = styled.div`
     margin-left: 165px;
     margin-right: 165px;
-    margin-top: 34px;
     width: 82.8%;
     height: 3px;
     background-color: var(--light-grayish-blue);
