@@ -17,28 +17,30 @@ export const HeaderContainer = styled.header`
         display: flex;
     }
 
-    .Logo {
-        margin-right: 56.5px;
-    }
+    ul {
+        display: flex;
+        padding: 0px;
+        margin-left: 56.5px;
 
-    nav p {
-        margin-left: 32px;
-        cursor: default;
-        color: var(--dark-grayish-blue);
-    } 
-    
-    nav p:hover{
-        color: black;
-        transition: 0.8s;
-    }
+        li {
+            cursor: default;
+            color: var(--dark-grayish-blue);
+            padding-right: 32px;
+        }
 
-    nav p::after{
-        content: "";
-        display: block;
-        width: auto;
-        height: 4px;
-        background-color: var(--orange);
-        margin-top: 45px;
+        li:hover{
+            color: black;
+            transition: 0.8s;
+        }
+
+        li::after{
+            content: "";
+            display: block;
+            width: auto;
+            height: 4px;
+            background-color: var(--orange);
+            margin-top: 45px;
+        }
     }
 `
 
