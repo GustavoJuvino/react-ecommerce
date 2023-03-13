@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const underlineEffect = keyframes`
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+`;
 
 export const HeaderContainer = styled.header`
     display: flex;
@@ -33,14 +43,19 @@ export const HeaderContainer = styled.header`
             transition: 0.8s;
         }
 
-        li::after{
+        .underline-effect::after{
             content: "";
             display: block;
             width: auto;
             height: 4px;
             background-color: var(--orange);
             margin-top: 45px;
+            color: red;
+            animation: ${underlineEffect} 0.3s;
+            transition-timing-function: ease-in;
         }
+        
+
     }
 `
 
