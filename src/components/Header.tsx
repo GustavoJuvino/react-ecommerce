@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { HeaderContainer } from './styles/Header.styled';
 import { UserSection } from './styles/Header.styled';
 import { Divider } from './styles/Header.styled';
@@ -8,17 +8,17 @@ import { ReactComponent as Cart } from '../assets/icon-cart.svg';
 const Header: React.FC = () => {
   const liElements = ["Collections", "Men", "Women", "About", "Contact"];
 
-  function liEffect(index: number): void{
+  const liEffect = useCallback((index: number) => {
     const liList = document.querySelectorAll("li");
-
     if(liList.length) {
       liList.forEach((li) => li.classList.remove("underline-effect"));
       liList[index].classList.add("underline-effect");
     }
-  };
+  }, []);
 
-  // liEffect(0);
-
+  useEffect(() => {
+    liEffect(0);
+  }, [liEffect])
 
   return (
     <>
@@ -27,7 +27,12 @@ const Header: React.FC = () => {
                 <Logo className="Logo" />
                 <ul>
                   {liElements.map((element, index) => 
-                    <li onClick={() => liEffect(index)} key={index}>{element}</li>
+                    <li 
+                      onClick={() => liEffect(index)}
+                      key={index}
+                    >
+                      {element}
+                    </li>
                   )}
                 </ul>
             </nav>
