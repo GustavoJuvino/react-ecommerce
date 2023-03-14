@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect } from 'react';
-import { HeaderContainer } from './styles/Header.styled';
-import { UserSection } from './styles/Header.styled';
-import { Divider } from './styles/Header.styled';
+import React, { useState, useCallback, useEffect } from 'react';
+import { HeaderContainer, Divider, UserSection } from './styles/Header.styled';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Cart } from '../assets/icon-cart.svg';
 
-const Header: React.FC = () => {
+const Header: React.FC= () => {
+  const [ativo, setAtivo] = useState(false);
+
   const liElements = ["Collections", "Men", "Women", "About", "Contact"];
 
   const liEffect = useCallback((index: number) => {
@@ -38,8 +38,16 @@ const Header: React.FC = () => {
             </nav>
 
             <UserSection>
-                <Cart className="Cart" />
-                <img src={require('../assets/image-avatar.png')} alt="user"/>
+                <Cart
+                  style={{ fill: ativo ? "black" : "#69707D" }}
+                  onClick={() => ativo ? setAtivo(false) : setAtivo(true)}
+                  className="Cart"
+                />
+                <img 
+                  style={{ border: ativo ? "2px solid orange" : "0px" }}
+                  onClick={() => ativo ? setAtivo(false) : setAtivo(true)}
+                  src={require('../assets/image-avatar.png')} alt="user"
+                />
             </UserSection>
         </HeaderContainer>
         <Divider></Divider>
