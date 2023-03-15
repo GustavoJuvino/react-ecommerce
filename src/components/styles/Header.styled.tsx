@@ -59,22 +59,6 @@ export const HeaderContainer = styled.header`
     }
 `
 
-export const UserSection = styled.div`
-    display: flex;
-    justify-content: center;
-
-    .Cart {
-        margin-right: 46px;
-        margin-top: 20px;
-    }
-
-    img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-`
-
 export const Divider = styled.div`
     margin-left: 165px;
     margin-right: 165px;
