@@ -1,4 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import useToggle from './hooks/useToggle';
 import { HeaderContainer, Divider } from './styles/Header.styled';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Cart } from '../assets/icon-cart.svg';
@@ -29,21 +30,18 @@ export const UserSection = styled.div<ExtraStyles>`
 
 const Header: React.FC= () => {
   const [ativo, setAtivo] = useState(false);
-
-  const liElements = ["Collections", "Men", "Women", "About", "Contact"];
-
-  const liEffect = useCallback((index: number) => {
-    const liList = document.querySelectorAll("li");
-
-    if(liList.length) {
-      liList.forEach((li) => li.classList.remove("underline-effect"));
-      liList[index].classList.add("underline-effect");
-    }
-  }, []);
+  const liElements = [
+    "Collections", 
+    "Men", 
+    "Women", 
+    "About", 
+    "Contact"
+  ];
+  const { toggleEffect } = useToggle();  
 
   useEffect(() => {
-    liEffect(0);
-  }, [liEffect])
+    toggleEffect(0, "li", "underline-effect");
+  }, [toggleEffect])
 
   return (
     <>
@@ -52,7 +50,7 @@ const Header: React.FC= () => {
           <Logo className="Logo" />
           <ul>
             {liElements.map((element, index) => 
-              <li onClick={() => liEffect(index)} key={index}>
+              <li onClick={() => toggleEffect(index, "li", "underline-effect")} key={index}>
                 {element}
               </li>
             )}
