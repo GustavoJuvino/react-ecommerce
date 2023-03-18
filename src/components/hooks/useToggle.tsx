@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 
 const useToggle = () => {
-    // Don't repeat tags in the element
+    // Must use specific selectors in element
     const toggleEffect = useCallback((index: number, element: string, className: string) => {
         const elementArray = document.querySelectorAll(element);
 

@@ -5,10 +5,11 @@ import useToggle from './hooks/useToggle';
 const ImagesSection = styled.section`
     margin: 90px 0px 0px 213px;
 
-    nav {
+    ul {
+        display: flex;
         padding: 0px;
 
-        button {
+        li {
             cursor: pointer;
             margin-top: 32px;
             margin-right: 31px;
@@ -49,17 +50,18 @@ const Images: React.FC = () => {
   return (
     <ImagesSection>
         <img alt="test" src={require("../assets/image-product-1.jpg")} />
-        <nav>
+        <ul className="imageList">
             {images?.map((img, index) => (
-                <button key={index}>
-                    <img onClick={() => toggleEffect(index, "button", "toggle-effect")}
+                <li key={index}>
+                    <img 
+                        onClick={() => toggleEffect(index, "ul.imageList > li", "toggle-effect")}
                         className="img-preview"
                         alt={`img-${index}`}
                         src={require(`../assets/image-${img}`)}
                     />
-                </button>
+                </li>
             ))}
-        </nav>
+        </ul>
     </ImagesSection>
   )
 }

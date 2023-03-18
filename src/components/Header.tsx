@@ -48,9 +48,9 @@ const Header: React.FC= () => {
       <HeaderContainer>
         <nav>
           <Logo className="Logo" />
-          <ul>
+          <ul className="headerList">
             {liElements.map((element, index) => 
-              <li onClick={() => toggleEffect(index, "li", "underline-effect")} key={index}>
+              <li onClick={() => toggleEffect(index, "ul.headerList > li", "underline-effect")} key={index}>
                 {element}
               </li>
             )}
