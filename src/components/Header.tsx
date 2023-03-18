@@ -10,7 +10,7 @@ type ExtraStyles = {
   borderColor: string;
 }
 
-export const UserSection = styled.div<ExtraStyles>`
+const UserSection = styled.div<ExtraStyles>`
   display: flex;
   justify-content: center;
 
