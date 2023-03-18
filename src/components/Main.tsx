@@ -1,10 +1,9 @@
 import React from 'react';
-import Images from './Images';
 
 const Main: React.FC = () => {
   return (
     <div>
-        <Images />
+      teste
     </div>
   )
 }
