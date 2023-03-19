@@ -52,7 +52,7 @@ export const HeaderContainer = styled.header`
             margin-top: 45px;
             color: red;
             animation: ${underlineEffect} 0.3s;
-            transition-timing-function: ease-in;
+            transition: ease-in;
         }
         
 

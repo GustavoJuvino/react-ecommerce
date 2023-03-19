@@ -40,7 +40,7 @@ const Header: React.FC= () => {
   const { toggleEffect } = useToggle();  
 
   useEffect(() => {
-    toggleEffect(0, "li", "underline-effect");
+    toggleEffect(0, "ul.headerList > li", "underline-effect");
   }, [toggleEffect])
 
   return (
