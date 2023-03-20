@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import useToggle from './hooks/useToggle';
 import { ImagesSection } from './styles/Images.styled';
 
 const Images: React.FC = () => {
+    const [src, setSrc] = useState<string>();
+
     const { toggleEffect } = useToggle();  
 
     const images = [
-        'product-1-thumbnail.jpg',
+        'product-1.jpg',
         'product-2.jpg',
         'product-3.jpg',
         'product-4.jpg'
@@ -16,21 +18,16 @@ const Images: React.FC = () => {
         toggleEffect(0, "ul.imageList > li", "toggle-effect");
       }, [toggleEffect])
 
-      function testClick(event: React.MouseEvent){
-        console.log(event.target)
-      }
-
-
   return (
     <ImagesSection>
-        <img alt="test" src={require("../assets/image-product-1.jpg")} />
+        <img alt="main-img" src={src ? src : require("../assets/image-product-1.jpg")} />
         <ul className="imageList">
             {images?.map((img, index) => (
                 <li key={index}>
                     <img 
-                        onClick={(event: React.MouseEvent) => {
+                        onClick={(event: React.MouseEvent<HTMLImageElement>) => {
                             toggleEffect(index, "ul.imageList > li", "toggle-effect")
-                            testClick(event);
+                            setSrc(event.currentTarget.src)
                         }}
                         className="img-preview"
                         alt={`img-${index}`}

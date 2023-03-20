@@ -29,7 +29,7 @@ const UserSection = styled.div<ExtraStyles>`
 `
 
 const Header: React.FC= () => {
-  const [ativo, setAtivo] = useState(false);
+  const [activate, setActivate] = useState(false);
   const liElements = [
     "Collections", 
     "Men", 
@@ -58,15 +58,15 @@ const Header: React.FC= () => {
         </nav>
 
         <UserSection 
-          borderColor={ ativo ? "2px solid orange" : ""}
-          fillColor={ ativo ? "black" : "#69707D"}
+          borderColor={ activate ? "2px solid orange" : ""}
+          fillColor={ activate ? "black" : "#69707D"}
         >
           <Cart
-            onClick={() => ativo ? setAtivo(false) : setAtivo(true)}
+            onClick={() => activate ? setActivate(false) : setActivate(true)}
             className="Cart"
           />
           <img 
-            onClick={() => ativo ? setAtivo(false) : setAtivo(true)}
+            onClick={() => activate ? setActivate(false) : setActivate(true)}
             src={require('../assets/image-avatar.png')} alt="user"
           />
         </UserSection>
