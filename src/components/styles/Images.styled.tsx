@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ImagesSection = styled.section`
-    margin: 90px 0px 0px 213px;
+    margin-left: 213px;
 
     ul {
         display: flex;
@@ -21,7 +21,7 @@ export const ImagesSection = styled.section`
         border-radius: 10px;
     }
 
-    img {
+    img[alt="main-img"] {
         width: 445px;
         height: 445px;
         border-radius: 15px;

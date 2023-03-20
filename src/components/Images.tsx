@@ -4,7 +4,6 @@ import { ImagesSection } from './styles/Images.styled';
 
 const Images: React.FC = () => {
     const [src, setSrc] = useState<string>();
-
     const { toggleEffect } = useToggle();  
 
     const images = [
