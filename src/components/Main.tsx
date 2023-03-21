@@ -1,7 +1,7 @@
 import React from 'react';
+import Buttons from './Buttons';
 import Images from './Images';
 import { MainContainer, MainTexts, Offer } from './styles/Main.styled';
-
 
 const Main: React.FC = () => {
   return (
@@ -18,10 +18,14 @@ const Main: React.FC = () => {
         <h2>
           $125.00 <Offer>50%</Offer>
         </h2>
-        <p className="old-price">$250.00</p>
+        <p className="old-price">
+          <del>$250.00</del>
+        </p>
+
+        <Buttons />
       </MainTexts>
     </MainContainer>
   )
 }
 
-export default Main
+export default Main;
