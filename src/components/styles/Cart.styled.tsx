@@ -1,6 +1,19 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const dropingMenu = keyframes`
+    from {
+        opacity: 0;
+        height: 0px;
+    }
+
+    to {
+        opacity: initial;
+        height: 256px;
+    }
+`
 
 export const CartMenu = styled.div`
+    animation: ${dropingMenu} 0.4s forwards;
     position: absolute;
     right: 0px;
     margin-right: 165px;

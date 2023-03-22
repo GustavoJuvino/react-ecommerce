@@ -30,7 +30,9 @@ const UserSection = styled.div<ExtraStyles>`
 `
 
 const Header: React.FC= () => {
-  const [activate, setActivate] = useState(false);
+  const [activate, setActivate] = useState<boolean>(false);
+  let cartDisplay = activate ? "block" : "none";
+
   const liElements = [
     "Collections", 
     "Men", 
@@ -38,6 +40,7 @@ const Header: React.FC= () => {
     "About", 
     "Contact"
   ];
+
   const { toggleEffect } = useToggle();  
 
   useEffect(() => {
@@ -73,7 +76,7 @@ const Header: React.FC= () => {
         </UserSection>
       </HeaderContainer>
       <Divider />
-      <Cart />
+      <Cart visibility={cartDisplay}/>
     </>
   )
 }
