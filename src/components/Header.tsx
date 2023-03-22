@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Cart from './Cart';
 import useToggle from './hooks/useToggle';
 import { HeaderContainer, Divider } from './styles/Header.styled';
 import { ReactComponent as Logo } from '../assets/logo.svg';
-import { ReactComponent as Cart } from '../assets/icon-cart.svg';
+import { ReactComponent as CartIcon } from '../assets/icon-cart.svg';
 import styled from 'styled-components';
 
 type ExtraStyles = {
@@ -61,7 +62,7 @@ const Header: React.FC= () => {
           borderColor={ activate ? "2px solid orange" : ""}
           fillColor={ activate ? "black" : "#69707D"}
         >
-          <Cart
+          <CartIcon
             onClick={() => activate ? setActivate(false) : setActivate(true)}
             className="Cart"
           />
@@ -72,6 +73,7 @@ const Header: React.FC= () => {
         </UserSection>
       </HeaderContainer>
       <Divider />
+      <Cart />
     </>
   )
 }
