@@ -6,6 +6,7 @@ export const ButtonsDiv = styled.div`
     margin-top: 32px;
 
     .button-clicked {
+        transition: 0.3s;
         background-color: #FFAB6A;
     }
 `
@@ -23,19 +24,19 @@ export const Counter = styled.div`
         padding-right: 16px;
         border: none;
         background-color: transparent;
-        font-size: 40px;
+        font-size: 35px;
         cursor: pointer;
         color: var(--orange);
     }
 
-    p {
-        padding-bottom: 30px;
+    span {
         font-size: 16px;
         font-weight: bold;
         color: black;
     }
 `
 export const CartButton = styled.button`
+    transition: 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,7 +47,7 @@ export const CartButton = styled.button`
     background-color: var(--orange);
     cursor: pointer;
 
-    p {
+    .button-text {
         padding-bottom: 26px;
         color: white;
         font-weight: bold;
