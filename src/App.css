@@ -35,4 +35,5 @@ ul, li{
 
 body{
     font-family: var(--font-);
+    background-color: rgb(71, 71, 71);
 }

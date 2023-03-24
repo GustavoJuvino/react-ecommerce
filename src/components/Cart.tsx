@@ -3,40 +3,26 @@ import { useOnClickOutside  } from 'usehooks-ts';
 import { CartMenu } from './styles/Cart.styled';
 
 type DisplayProps = {
-  visibility: string;
+  display: boolean;
+  setDisplay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 
-const Cart: React.FC<DisplayProps> = ({ visibility }) => {
+const Cart: React.FC<DisplayProps> = ({ display, setDisplay }) => {
   const cart = useRef<HTMLDivElement>(null);
 
-
-  React.useEffect(() => {
-    console.log(visibility)
-  } , [visibility])
-
-  const handleClickOutside = () => {
-    // Your custom logic here
-    console.log('clicked outside')
-  }
-
-
-  const handleClickInside = () => {
-    // Your custom logic here
-    console.log('clicked inside')
-  }
-
-  useOnClickOutside(cart, handleClickOutside);
+  useOnClickOutside(cart, () => display ? setDisplay(false) : null);
 
   return (
-    <CartMenu
-      ref={ cart }
-      style={{ display: visibility }}
-      onClick={handleClickInside}
-    >
-      <h3>Cart</h3>
-      <p>Your cart is empty</p>
-    </CartMenu>
+    <>
+      {display ? (
+        <CartMenu ref={ cart }>
+          <h3>Cart</h3>
+          <p>Your cart is empty</p>
+        </CartMenu>
+      ): null}
+    </>
+
   )
 }
 
