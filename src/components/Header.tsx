@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
 import useToggle from './hooks/useToggle';
 import { HeaderContainer, Divider } from './styles/Header.styled';
@@ -32,7 +32,7 @@ const UserSection = styled.div<ExtraStyles>`
 const Header: React.FC= () => {
   const [activate, setActivate] = useState(false);
 
-  const imgUser = useRef<HTMLImageElement>(null);
+  let cartDisplay = activate ? "block" : "none";
 
   const liElements = [
     "Collections", 
@@ -66,18 +66,16 @@ const Header: React.FC= () => {
           borderColor={ activate ? "2px solid orange" : ""}
           fillColor={ activate ? "black" : "#69707D"}
         >
-          <CartIcon
-            className="Cart"
-          />
-          <img 
-            onClick={() => activate ? setActivate(false) : setActivate(true)}
-            ref={imgUser}
-            src={require('../assets/image-avatar.png')} alt="user"
-          />
+          
+          <CartIcon className="Cart" onClick={() => setActivate(!activate)}/>
+
+          <img src={require('../assets/image-avatar.png')} alt="user" />
+
         </UserSection>
       </HeaderContainer>
       <Divider />
-      <Cart display={activate} setDisplay={setActivate} />
+
+      <Cart cartDisplay={cartDisplay} />
     </>
   )
 }

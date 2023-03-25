@@ -18,8 +18,16 @@ export const HeaderContainer = styled.header`
     margin-right: 165px;
     margin-top: 20px;
 
-    .Logo, .Cart, img {
+    .Logo, .Cart {
         cursor: pointer;
+    }
+
+    img {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
     }
 
     nav {

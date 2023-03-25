@@ -1,26 +1,26 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useOnClickOutside  } from 'usehooks-ts';
 import { CartMenu } from './styles/Cart.styled';
 
 type DisplayProps = {
-  display: boolean;
-  setDisplay: React.Dispatch<React.SetStateAction<boolean>>;
+  cartDisplay: string;
 }
 
 
-const Cart: React.FC<DisplayProps> = ({ display, setDisplay }) => {
-  const cart = useRef<HTMLDivElement>(null);
+const Cart: React.FC<DisplayProps> = ({ cartDisplay }) => {
+  const [cart, setCart] = useState(true);
+  const cartMenu = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(cart, () => display ? setDisplay(false) : null);
+  useOnClickOutside(cartMenu, () => setCart(false))
 
   return (
     <>
-      {display ? (
-        <CartMenu ref={ cart }>
+      {cart || cartDisplay==="block" ? (
+        <CartMenu ref={cartMenu}> 
           <h3>Cart</h3>
           <p>Your cart is empty</p>
         </CartMenu>
-      ): null}
+      ) : null}
     </>
 
   )
