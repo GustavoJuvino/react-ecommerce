@@ -1,21 +1,36 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useOnClickOutside  } from 'usehooks-ts';
 import { CartMenu } from './styles/Cart.styled';
 
 type DisplayProps = {
-  cartDisplay: string;
+  activate: boolean;
+  setActivate:  React.Dispatch<React.SetStateAction<boolean>>;
+  cartRef: React.RefObject<HTMLDivElement>;
 }
 
+const Cart: React.FC<DisplayProps> = ({ activate, setActivate, cartRef }) => {
 
-const Cart: React.FC<DisplayProps> = ({ cartDisplay }) => {
-  const [cart, setCart] = useState(true);
   const cartMenu = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(cartMenu, () => setCart(false))
+  useEffect(() => {
+    let handler = (e: MouseEvent)=>{
+      if(!cartRef.current?.contains(e.target as Node) && !cartMenu.current?.contains(e.target as Node)){
+        setActivate(false);
+      }
+    };
+
+    document.addEventListener("mousedown", (e: MouseEvent) => handler(e));
+    
+
+    return() =>{
+      document.removeEventListener("mousedown", (e: MouseEvent) => handler(e));
+    }
+
+  });
 
   return (
     <>
-      {cart || cartDisplay==="block" ? (
+      {activate ? (
         <CartMenu ref={cartMenu}> 
           <h3>Cart</h3>
           <p>Your cart is empty</p>

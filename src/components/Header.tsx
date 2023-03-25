@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
 import useToggle from './hooks/useToggle';
 import { HeaderContainer, Divider } from './styles/Header.styled';
@@ -30,9 +30,7 @@ const UserSection = styled.div<ExtraStyles>`
 `
 
 const Header: React.FC= () => {
-  const [activate, setActivate] = useState(false);
-
-  let cartDisplay = activate ? "block" : "none";
+  const [activate, setActivate] = useState(true);
 
   const liElements = [
     "Collections", 
@@ -47,6 +45,8 @@ const Header: React.FC= () => {
   useEffect(() => {
     toggleEffect(0, "ul.headerList > li", "underline-effect");
   }, [toggleEffect])
+
+  const ref = useRef<HTMLDivElement>(null);
 
   return (
     <>
@@ -66,8 +66,9 @@ const Header: React.FC= () => {
           borderColor={ activate ? "2px solid orange" : ""}
           fillColor={ activate ? "black" : "#69707D"}
         >
-          
-          <CartIcon className="Cart" onClick={() => setActivate(!activate)}/>
+          <div ref={ref}>
+            <CartIcon className="Cart" onClick={() => setActivate(!activate)} />
+          </div>
 
           <img src={require('../assets/image-avatar.png')} alt="user" />
 
@@ -75,7 +76,7 @@ const Header: React.FC= () => {
       </HeaderContainer>
       <Divider />
 
-      <Cart cartDisplay={cartDisplay} />
+      <Cart activate={activate} setActivate={setActivate} cartRef={ref}  />
     </>
   )
 }
