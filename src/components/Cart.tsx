@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { useOnClickOutside  } from 'usehooks-ts';
+import React, { useRef, useEffect } from 'react';
 import { CartMenu } from './styles/Cart.styled';
 
 type DisplayProps = {
@@ -9,23 +8,19 @@ type DisplayProps = {
 }
 
 const Cart: React.FC<DisplayProps> = ({ activate, setActivate, cartRef }) => {
-
   const cartMenu = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let handler = (e: MouseEvent)=>{
-      if(!cartRef.current?.contains(e.target as Node) && !cartMenu.current?.contains(e.target as Node)){
+      if(!cartRef.current?.contains(e.target as Node) 
+        && !cartMenu.current?.contains(e.target as Node)){
         setActivate(false);
       }
     };
 
     document.addEventListener("mousedown", (e: MouseEvent) => handler(e));
     
-
-    return() =>{
-      document.removeEventListener("mousedown", (e: MouseEvent) => handler(e));
-    }
-
+    return() => document.removeEventListener("mousedown", (e: MouseEvent) => handler(e));
   });
 
   return (

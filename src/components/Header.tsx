@@ -63,20 +63,29 @@ const Header: React.FC= () => {
         </nav>
 
         <UserSection 
-          borderColor={ activate ? "2px solid orange" : ""}
-          fillColor={ activate ? "black" : "#69707D"}
-        >
+            borderColor={ activate ? "2px solid orange" : ""}
+            fillColor={ activate ? "black" : "#69707D"}
+          >
+
           <div ref={ref}>
-            <CartIcon className="Cart" onClick={() => setActivate(!activate)} />
+            <CartIcon
+              className="Cart"
+              onClick={() => setActivate(!activate)}
+            />
           </div>
 
           <img src={require('../assets/image-avatar.png')} alt="user" />
 
         </UserSection>
       </HeaderContainer>
+
       <Divider />
 
-      <Cart activate={activate} setActivate={setActivate} cartRef={ref}  />
+      <Cart
+        activate={activate}
+        setActivate={setActivate}
+        cartRef={ref} 
+      />
     </>
   )
 }
