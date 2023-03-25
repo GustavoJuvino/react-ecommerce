@@ -30,7 +30,7 @@ const UserSection = styled.div<ExtraStyles>`
 `
 
 const Header: React.FC= () => {
-  const [activate, setActivate] = useState(true);
+  const [activate, setActivate] = useState(false);
 
   const liElements = [
     "Collections", 

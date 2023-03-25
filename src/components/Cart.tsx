@@ -21,12 +21,14 @@ const Cart: React.FC<DisplayProps> = ({ activate, setActivate, cartRef }) => {
     document.addEventListener("mousedown", (e: MouseEvent) => handler(e));
     
     return() => document.removeEventListener("mousedown", (e: MouseEvent) => handler(e));
+    
+
   });
 
   return (
     <>
       {activate ? (
-        <CartMenu ref={cartMenu}> 
+        <CartMenu className={activate ? "open" : "closed"} ref={cartMenu}> 
           <h3>Cart</h3>
           <p>Your cart is empty</p>
         </CartMenu>
