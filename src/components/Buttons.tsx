@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import { ReactComponent as CartIcon } from "../assets/icon-cart.svg";
 import { ButtonsDiv, Counter, CartButton } from "./styles/Buttons.styled";
+import { useCounterContext } from "./useCounterContext";
 
 const Buttons: React.FC = () => {
-  const cartButton = useRef<HTMLButtonElement | null>(null);
+  const cartButton = useRef<HTMLButtonElement>(null);
+  const { counter, setCounter } = useCounterContext();
 
   function clickEffect(event: React.MouseEvent){
     if(event.type === "mousedown"){
@@ -18,9 +20,11 @@ const Buttons: React.FC = () => {
   return (
     <ButtonsDiv>
         <Counter>
-            <button>-</button>
-            <span>0</span>
-            <button>+</button>
+            <button onClick={() => counter > 0 ? setCounter( counter - 1 ) : null}> 
+              - 
+            </button>
+            <span>{counter}</span>
+            <button onClick={() => setCounter( counter + 1 )}> + </button>
         </Counter>
 
         <CartButton 
