@@ -23,7 +23,7 @@ const itemEffect = keyframes`
 `
 
 export const CartMenu = styled.div`
-    animation: ${dropingMenu} 0.4s forwards;
+    animation: ${dropingMenu} 0.3s forwards;
     position: absolute;
     right: 0px;
     margin-right: 165px;
@@ -45,6 +45,16 @@ export const CartMenu = styled.div`
         border-bottom: 1px solid var(--grayish-blue);
     }
 
+    .empty-cart {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--dark-grayish-blue);
+        text-align: center;
+    }
+
     button {
         animation: ${itemEffect} 0.8s forwards;
         width: 312px;
@@ -58,16 +68,6 @@ export const CartMenu = styled.div`
         color: white;
         cursor: pointer;
     }
-
-    /* p {
-        position: absolute;
-        top: 50%;
-        left: 30%;
-        font-size: 16px;
-        font-weight: bold;
-        color: var(--dark-grayish-blue);
-        text-align: center;
-    } */
 
 `
 

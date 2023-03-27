@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { ReactComponent as CartIcon } from "../assets/icon-cart.svg";
 import { ButtonsDiv, Counter, CartButton } from "./styles/Buttons.styled";
-import { useCounterContext } from "./useCounterContext";
+import { useCounterContext } from "./contexts/useCounterContext";
+import { useDisplayCartContext } from './contexts/useDisplayCartContext';
 
 const Buttons: React.FC = () => {
   const [disabled, setDisabled] = useState(false);
   const { counter, setCounter } = useCounterContext();
+  const { setActivate } = useDisplayCartContext();
 
   useEffect(() => {
     if(disabled) {
@@ -27,7 +29,10 @@ const Buttons: React.FC = () => {
 
         <CartButton 
           disabled={disabled}
-          onClick={() => setDisabled(true)}
+          onClick={() => {
+            setDisabled(true);
+            if(counter > 0) setActivate(true);
+          }}
         >
           <CartIcon className="cart-icon"/>
           <p className="button-text" >Add to cart</p>

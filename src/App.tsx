@@ -2,16 +2,20 @@ import React from 'react';
 import Header from './components/Header';
 import "./App.css";
 import Main from './components/Main';
-import { CounterContext } from './components/useCounterContext';
+import { CounterContext } from './components/contexts/useCounterContext';
+import { DisplayCartContext } from './components/contexts/useDisplayCartContext';
 
 const App: React.FC = () => {
   const [counter, setCounter] = React.useState(0);
+  const [activate, setActivate] = React.useState(false);
 
   return (
     <section>
       <CounterContext.Provider  value= {{ counter, setCounter }}>
-        <Header />
-        <Main />
+        <DisplayCartContext.Provider value={{ activate, setActivate}}>
+          <Header/>
+          <Main />
+        </DisplayCartContext.Provider>
       </CounterContext.Provider>
     </section>
   )

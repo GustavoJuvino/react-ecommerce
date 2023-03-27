@@ -12,5 +12,5 @@ export const CounterContext = createContext<Count>({
 });
 
 
-export const useCounterContext = () => useContext(CounterContext)
+export const useCounterContext = () => useContext(CounterContext);
 
