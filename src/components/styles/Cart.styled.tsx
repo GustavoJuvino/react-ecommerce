@@ -12,6 +12,16 @@ const dropingMenu = keyframes`
     }
 `
 
+const itemEffect = keyframes`
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: initial;
+    }
+`
+
 export const CartMenu = styled.div`
     animation: ${dropingMenu} 0.4s forwards;
     position: absolute;
@@ -35,7 +45,21 @@ export const CartMenu = styled.div`
         border-bottom: 1px solid var(--grayish-blue);
     }
 
-    p {
+    button {
+        animation: ${itemEffect} 0.8s forwards;
+        width: 312px;
+        height: 56px;
+        margin: 24px 24px 0px 24px;
+        background-color: var(--orange);
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* p {
         position: absolute;
         top: 50%;
         left: 30%;
@@ -43,6 +67,41 @@ export const CartMenu = styled.div`
         font-weight: bold;
         color: var(--dark-grayish-blue);
         text-align: center;
+    } */
+
+`
+
+export const Item = styled.section`
+    animation: ${itemEffect} 0.8s forwards;
+    display: flex;
+    margin: 24px 24px 0px 24px;
+    align-items: center;
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
     }
 
+    .item-texts {
+        display: flex;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 26px;
+        color: var(--dark-grayish-blue);
+        margin-left: 16px;
+    }
+
+    span {
+        font-weight: bold;
+        color: black;
+        margin-left: 10px;
+    }
+
+    .delete {
+        margin-left: 18px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
 `
