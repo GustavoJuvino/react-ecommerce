@@ -5,8 +5,7 @@ export const ButtonsDiv = styled.div`
     justify-content: space-between;
     margin-top: 32px;
 
-    .button-clicked {
-        transition: 0.3s;
+    button:disabled {
         background-color: #FFAB6A;
     }
 `

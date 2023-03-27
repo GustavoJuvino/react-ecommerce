@@ -1,21 +1,19 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { ReactComponent as CartIcon } from "../assets/icon-cart.svg";
 import { ButtonsDiv, Counter, CartButton } from "./styles/Buttons.styled";
 import { useCounterContext } from "./useCounterContext";
 
 const Buttons: React.FC = () => {
-  const cartButton = useRef<HTMLButtonElement>(null);
+  const [disabled, setDisabled] = useState(false);
   const { counter, setCounter } = useCounterContext();
 
-  function clickEffect(event: React.MouseEvent){
-    if(event.type === "mousedown"){
-      cartButton.current?.classList.add("button-clicked");
-    } else if(event.type === "mouseup") {
+  useEffect(() => {
+    if(disabled) {
       setTimeout(() => {
-        cartButton.current?.classList.remove("button-clicked");
-      }, 1500)
+        setDisabled(false)
+      }, 1400)
     }
-  }
+  }, [disabled])
 
   return (
     <ButtonsDiv>
@@ -28,9 +26,8 @@ const Buttons: React.FC = () => {
         </Counter>
 
         <CartButton 
-          ref={cartButton}
-          onMouseDown={(e) => clickEffect(e)}
-          onMouseUp={(e) => clickEffect(e)}
+          disabled={disabled}
+          onClick={() => setDisabled(true)}
         >
           <CartIcon className="cart-icon"/>
           <p className="button-text" >Add to cart</p>
