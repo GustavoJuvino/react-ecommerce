@@ -7,8 +7,8 @@ interface CartDisplay  {
 
 
 export const DisplayCartContext = createContext<CartDisplay>({
-    activate: false,
-    setActivate: () => {}
+  activate: false,
+  setActivate: () => {}
 });
 
 
