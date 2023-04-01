@@ -1,5 +1,68 @@
 import styled, { keyframes } from "styled-components";
 
+
+type ExtraStyles = {
+    fillColor: string;
+    borderColor: string;
+}
+  
+export const UserContainer = styled.section<ExtraStyles>`
+     display: flex;
+
+    .Cart {
+      fill: ${props => props.fillColor};
+    }
+  
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border:  ${props => props.borderColor};
+    }
+
+    .Cart {
+        cursor: pointer;
+    }
+
+    img, span {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+`
+
+export const CartDiv = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .Cart {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        z-index: 1;
+        margin-right: 46px;
+        margin-top: 20px;
+    }
+
+    span {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        z-index: 2;
+        width: 22px;
+        height: 14px;
+        margin-top: 14px;
+        margin-left: 12px;
+        border-radius: 6px;
+        background-color: #FF7E1B;
+        font-size: 10px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+`
+
+
 const underlineEffect = keyframes`
     from {
         transform: scaleX(0);
@@ -11,11 +74,18 @@ const underlineEffect = keyframes`
 `;
 
 export const HeaderContainer = styled.header`
-    display: flex;
-    justify-content: space-between;
-    width: 82.8%;
+    .test-menu {
+        display: flex;
+        flex-wrap: wrap
+    }
+
     margin-left: 165px;
     margin-right: 165px;
+`
+
+export const HeaderContent = styled.section`
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
 
     .Logo {
@@ -61,9 +131,7 @@ export const HeaderContainer = styled.header`
 
 
 export const Divider = styled.div`
-    margin-left: 165px;
-    margin-right: 165px;
-    width: 82.8%;
+    width: 100%;
     height: 3px;
     background-color: var(--light-grayish-blue);
 `

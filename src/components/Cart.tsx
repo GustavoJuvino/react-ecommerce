@@ -11,13 +11,14 @@ type DisplayProps = {
 const Cart: React.FC<DisplayProps> = ({ cartRef }) => {
   const cartMenu = useRef<HTMLDivElement>(null);
   const { activate, setActivate } = useDisplayCartContext();
-  const { counter, setCounter } = useCounterContext();
+  const { counter } = useCounterContext();
 
   useEffect(() => {
+  
     let handler = (e: MouseEvent) => {
       if (
-        !cartRef?.current?.contains(e.target as Node) &&
-        !cartMenu.current?.contains(e.target as Node)
+        !cartMenu.current?.contains(e.target as Node) &&
+        !cartRef?.current?.contains(e.target as Node)
       ) {
         if (setActivate) setActivate(false);
       }

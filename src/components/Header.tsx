@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
-import UserSection from "./UserSection";
+import React, { useEffect, useRef } from 'react';
+import { useDisplayCartContext } from './contexts/useDisplayCartContext';
 import useToggle from './hooks/useToggle';
-import { HeaderContainer, Divider } from './styles/Header.styled';
+import { HeaderContainer, HeaderContent, Divider, UserContainer, CartDiv } from './styles/Header.styled';
 import { ReactComponent as Logo } from '../assets/logo.svg';
+import Cart from "./Cart";
+import { ReactComponent as CartIcon } from '../assets/icon-cart.svg';
 
 const Header: React.FC= () => {
+  const { activate, setActivate } = useDisplayCartContext();
+  const cartRef = useRef(null);
 
   const liElements = [
     "Collections", 
@@ -21,8 +25,8 @@ const Header: React.FC= () => {
   }, [toggleEffect])
 
   return (
-    <>
-      <HeaderContainer>
+    <HeaderContainer>
+      <HeaderContent>
         <nav>
           <Logo className="Logo" />
           <ul className="headerList">
@@ -34,27 +38,29 @@ const Header: React.FC= () => {
           </ul>
         </nav>
 
-        {/* <UserSection 
-            borderColor={ activate ? "2px solid orange" : ""}
-            fillColor={ activate ? "black" : "#69707D"}
-          >
-
-          <CartDiv ref={cartRef}>
-            <CartIcon
-              className="Cart"
-              onClick={() => setActivate(!activate)}
-            />
-            <span>3</span>
+        
+        <UserContainer
+          borderColor={ activate ? "2px solid orange" : ""}
+          fillColor={ activate ? "black" : "#69707D"}
+        >
+          <CartDiv id="cart-div" ref={cartRef}>
+                  <CartIcon
+                  className="Cart"
+                  onClick={() => setActivate(!activate)}
+                  />
+                  <span>3</span>
           </CartDiv>
 
           <img src={require('../assets/image-avatar.png')} alt="user" />
+        </UserContainer>
 
-        </UserSection> */}
-        <UserSection />
-      </HeaderContainer>
+      </HeaderContent>
 
-      <Divider />
-    </>
+      <div className="test-menu">
+        <Divider />
+        <Cart cartRef={cartRef} />
+      </div>
+    </HeaderContainer>
   )
 }
 
