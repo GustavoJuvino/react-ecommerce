@@ -1,37 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import UserSection from "./UserSection";
 import useToggle from './hooks/useToggle';
-import { useDisplayCartContext } from './contexts/useDisplayCartContext';
 import { HeaderContainer, Divider } from './styles/Header.styled';
-import Cart from './Cart';
 import { ReactComponent as Logo } from '../assets/logo.svg';
-import { ReactComponent as CartIcon } from '../assets/icon-cart.svg';
-import styled from 'styled-components';
-
-type ExtraStyles = {
-  fillColor: string;
-  borderColor: string;
-}
-
-const UserSection = styled.div<ExtraStyles>`
-  display: flex;
-  justify-content: center;
-
-  .Cart {
-    margin-right: 46px;
-    margin-top: 20px;
-    fill: ${props => props.fillColor};
-  }
-
-  img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border:  ${props => props.borderColor};
-  }
-`
 
 const Header: React.FC= () => {
-  const { activate, setActivate } = useDisplayCartContext();
 
   const liElements = [
     "Collections", 
@@ -47,8 +20,6 @@ const Header: React.FC= () => {
     toggleEffect(0, "ul.headerList > li", "underline-effect");
   }, [toggleEffect])
 
-  const cartRef = useRef<HTMLDivElement>(null);
-
   return (
     <>
       <HeaderContainer>
@@ -63,26 +34,26 @@ const Header: React.FC= () => {
           </ul>
         </nav>
 
-        <UserSection 
+        {/* <UserSection 
             borderColor={ activate ? "2px solid orange" : ""}
             fillColor={ activate ? "black" : "#69707D"}
           >
 
-          <div ref={cartRef}>
+          <CartDiv ref={cartRef}>
             <CartIcon
               className="Cart"
               onClick={() => setActivate(!activate)}
             />
-          </div>
+            <span>3</span>
+          </CartDiv>
 
           <img src={require('../assets/image-avatar.png')} alt="user" />
 
-        </UserSection>
+        </UserSection> */}
+        <UserSection />
       </HeaderContainer>
 
       <Divider />
-
-      <Cart cartRef={cartRef} />
     </>
   )
 }

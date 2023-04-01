@@ -18,18 +18,10 @@ export const HeaderContainer = styled.header`
     margin-right: 165px;
     margin-top: 20px;
 
-    .Logo, .Cart {
+    .Logo {
         cursor: pointer;
     }
-
-    img {
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -o-user-select: none;
-        user-select: none;
-    }
-
+    
     nav {
         margin-top: 15px;
         display: flex;
@@ -66,6 +58,7 @@ export const HeaderContainer = styled.header`
 
     }
 `
+
 
 export const Divider = styled.div`
     margin-left: 165px;

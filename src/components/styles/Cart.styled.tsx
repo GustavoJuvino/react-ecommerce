@@ -25,6 +25,7 @@ const itemEffect = keyframes`
 export const CartMenu = styled.div`
     animation: ${dropingMenu} 0.3s forwards;
     position: absolute;
+    top: 104px;
     right: 0px;
     margin-right: 165px;
     z-index: 2;
@@ -34,6 +35,14 @@ export const CartMenu = styled.div`
     border-radius: 10px;
     background-color: white;
     box-shadow: 0px 20px 50px -20px #1D2026;
+
+    h3, .empty-cart  {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
 
     h3 {
         font-size: 16px;
