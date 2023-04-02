@@ -6,8 +6,19 @@ type ExtraStyles = {
     borderColor: string;
 }
   
+export const HeaderContainer = styled.header`
+    margin: 0px 165px 0px 165px;    
+
+    .divider-div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+`
+
+
 export const UserContainer = styled.section<ExtraStyles>`
      display: flex;
+    
 
     .Cart {
       fill: ${props => props.fillColor};
@@ -73,15 +84,6 @@ const underlineEffect = keyframes`
     }
 `;
 
-export const HeaderContainer = styled.header`
-    .test-menu {
-        display: flex;
-        flex-wrap: wrap
-    }
-
-    margin-left: 165px;
-    margin-right: 165px;
-`
 
 export const HeaderContent = styled.section`
     display: flex;

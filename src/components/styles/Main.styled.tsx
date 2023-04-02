@@ -7,10 +7,11 @@ export const MainContainer = styled.section`
     margin-top: 90px;
 `
 export const MainTexts = styled.section`
-    width: 55%;
+    width: 55%; 
     height: auto;
     text-align: left;
-
+    
+    
     .logo-text {
         letter-spacing: 2px;
         font-size: 13px;
