@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ImagesSection = styled.section`
     margin-left: 213px;
 
     ul {
+        
         display: flex;
         padding: 0px;
 
