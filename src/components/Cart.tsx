@@ -48,7 +48,7 @@ const Cart: React.FC<DisplayProps> = ({ cartRef }) => {
                   <p>Fall Limited Edition Sneakers</p>
                   <p>
                     $125.00 x {counter}
-                    <span> $375.00 </span>
+                    <span>{"$" + (125 * counter).toFixed(2)}</span>
                   </p>
                 </div>
 
