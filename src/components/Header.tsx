@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Cart from "./Cart";
 import { useDisplayCartContext } from './contexts/useDisplayCartContext';
+import { CounterContext, useCounterContext } from "./contexts/useCounterContext";
 import useToggle from './hooks/useToggle';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as CartIcon } from '../assets/icon-cart.svg';
@@ -14,6 +15,7 @@ import {
 
 const Header: React.FC= () => {
   const { activate, setActivate } = useDisplayCartContext();
+  const { counter } = useCounterContext();
   const cartRef = useRef(null);
 
   const liElements = [
@@ -53,7 +55,8 @@ const Header: React.FC= () => {
               className="Cart"
               onClick={() => setActivate(!activate)}
             />
-              <span>3</span>
+
+            {counter > 0 ? <span>{counter}</span>: null}
           </CartDiv>
 
           <img src={require('../assets/image-avatar.png')} alt="user" />

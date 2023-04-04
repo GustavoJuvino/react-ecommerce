@@ -42,6 +42,7 @@ const Cart: React.FC<DisplayProps> = ({ cartRef }) => {
                 alt="cart-item"
                 src={require("../assets/image-product-1-thumbnail.jpg")}
               />
+              
               <div className="item-texts">
                 <div>
                   <p>Fall Limited Edition Sneakers</p>
@@ -50,6 +51,7 @@ const Cart: React.FC<DisplayProps> = ({ cartRef }) => {
                     <span> $375.00 </span>
                   </p>
                 </div>
+
                 <Delete className="delete" />
               </div>
             </Item>

@@ -4,7 +4,6 @@ export const ImagesSection = styled.section`
     margin-left: 213px;
 
     ul {
-        
         display: flex;
         padding: 0px;
 

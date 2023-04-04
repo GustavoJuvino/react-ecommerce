@@ -81,6 +81,7 @@ export const Item = styled.section`
     display: flex;
     margin: 24px 24px 0px 24px;
     align-items: center;
+    
     img {
         width: 50px;
         height: 50px;

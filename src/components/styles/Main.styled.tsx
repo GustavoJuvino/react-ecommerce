@@ -11,7 +11,6 @@ export const MainTexts = styled.section`
     height: auto;
     text-align: left;
     
-    
     .logo-text {
         letter-spacing: 2px;
         font-size: 13px;

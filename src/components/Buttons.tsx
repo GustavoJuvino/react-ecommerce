@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { ReactComponent as CartIcon } from "../assets/icon-cart.svg";
-import { ButtonsDiv, Counter, CartButton } from "./styles/Buttons.styled";
 import { useCounterContext } from "./contexts/useCounterContext";
 import { useDisplayCartContext } from "./contexts/useDisplayCartContext";
+import { ReactComponent as CartIcon } from "../assets/icon-cart.svg";
+import { ButtonsDiv, Counter, CartButton } from "./styles/Buttons.styled";
 
 const Buttons: React.FC = () => {
   const [disabled, setDisabled] = useState(false);
