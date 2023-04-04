@@ -11,7 +11,7 @@ type DisplayProps = {
 const Cart: React.FC<DisplayProps> = ({ cartRef }) => {
   const cartMenu = useRef<HTMLDivElement>(null);
   const { activate, setActivate } = useDisplayCartContext();
-  const { counter } = useCounterContext();
+  const { counter, setCounter } = useCounterContext();
 
   useEffect(() => {
   
@@ -52,7 +52,7 @@ const Cart: React.FC<DisplayProps> = ({ cartRef }) => {
                   </p>
                 </div>
 
-                <Delete className="delete" />
+                <Delete className="delete" onClick={() => setCounter(0)}/>
               </div>
             </Item>
           ) : (
