@@ -1,5 +1,6 @@
 import React from 'react';
 import { images } from "./Images";
+import { Main } from "./styles/Modal.styled";
 
 type ActiveModal = {
     modal: boolean;
@@ -8,18 +9,18 @@ type ActiveModal = {
 const Modal: React.FC<ActiveModal> = ({ modal }) => {
 
   return (
-    <>
+    <Main style={{ display: modal ? "block" : "none"}}>
         {modal ? (
-            <main>
-                <button>Delete</button>
-            
+            <section>
+                 <button>Delete</button>
+                
                 <div>
                     <button> {"<"} </button>
                     <img 
                         alt="main-img"
                         src={require("../assets/image-product-1.jpg")}
                     />
-                    <button> {">"} </button>
+                        <button> {">"} </button>
                 </div>
             
                 <ul>
@@ -29,12 +30,12 @@ const Modal: React.FC<ActiveModal> = ({ modal }) => {
                                 alt={`img-${index}`}
                                 src={require(`../assets/image-${img}`)}
                             />
-                        </li>
-                    ))}
-                </ul>
-            </main>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
         ) : null}
-    </>
+    </Main>
   )
 }
 
