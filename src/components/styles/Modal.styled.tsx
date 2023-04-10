@@ -83,7 +83,7 @@ export const ModalSection = styled.section`
         justify-content: center;
 
         li {
-            padding-left: 30px;
+            margin-left: 30px;
             cursor: pointer;
         }
     }

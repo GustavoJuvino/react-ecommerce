@@ -44,7 +44,7 @@ const Images: React.FC = () => {
             </ul>
         </ImagesSection>
 
-        <Modal modal={ modal }/>
+        <Modal modal={ modal } setModal={ setModal } />
     </>
   )
 }

@@ -18,7 +18,7 @@ const Cart: React.FC<DisplayProps> = ({ cartRef }) => {
     let handler = (e: MouseEvent) => {
       if (
         !cartMenu.current?.contains(e.target as Node) &&
-        !cartRef?.current?.contains(e.target as Node)
+        !cartRef.current?.contains(e.target as Node)
       ) {
         if (setActivate) setActivate(false);
       }
