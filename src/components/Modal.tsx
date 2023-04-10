@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { images } from "./Images";
 import { Main, ModalSection } from "./styles/Modal.styled";
 import { ReactComponent as CloseModal} from "../assets/icon-close.svg";
@@ -9,6 +9,7 @@ type ActiveModal = {
 };
 
 const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
+    const [src, setSrc] = useState<string>();
     const modalRef = useRef(null);
 
     useEffect(() => {
@@ -24,6 +25,10 @@ const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
           document.removeEventListener("mousedown", (e: MouseEvent) => handler(e));
     });
 
+    function imgsTest(){
+        
+    }
+
   return (
     <Main style={{ display: modal ? "block" : "none"}}>
         {modal ? (
@@ -37,9 +42,14 @@ const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
                     <div className="previous"> {" < "} </div>
                     <img 
                         alt="main-img"
-                        src={require("../assets/image-product-1.jpg")}
+                        src={src ? src : require("../assets/image-product-1.jpg")}
                     />
-                    <div className="next"> {" > "} </div>
+                    <div 
+                        className="next"
+                        onClick={() => imgsTest()}
+                    >
+                        {" > "}
+                    </div>
                 </div>
             
                 <ul>
@@ -47,11 +57,14 @@ const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
                         <li key={index}>
                             <img
                                 alt={`img-${index}`}
+                                onClick={(event: React.MouseEvent<HTMLImageElement>) => {
+                                    setSrc(event.currentTarget.src)
+                                }}
                                 src={require(`../assets/image-${img}`)}
                             />
                             </li>
                         ))}
-                    </ul>
+                </ul>
                 </ModalSection>
         ) : null}
     </Main>
