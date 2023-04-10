@@ -9,11 +9,10 @@ export const Main = styled.main`
     height: 100%;
     background-color: #0f0f0f58;
     
-
     .delete {
         position: absolute;
         top: -34px;
-        right: 14px;
+        right: 8px;
         width: 20px;
         height: 20px;
         fill: white;
@@ -26,7 +25,7 @@ export const Main = styled.main`
         }
     }
 
-    .main-img {
+    .main-img-container {
         display: flex;
 
         img {

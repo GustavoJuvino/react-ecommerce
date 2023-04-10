@@ -22,6 +22,7 @@ export const ImagesSection = styled.section`
     }
 
     img[alt="main-img"] {
+        cursor: pointer;
         width: 445px;
         height: 445px;
         border-radius: 15px;

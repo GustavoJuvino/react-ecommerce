@@ -8,14 +8,13 @@ type ActiveModal = {
 };
 
 const Modal: React.FC<ActiveModal> = ({ modal }) => {
-
   return (
     <Main style={{ display: modal ? "block" : "none"}}>
         {modal ? (
             <ModalSection>
-                 <CloseModal className="delete" />
+                <CloseModal className="delete" />
                 
-                <div className="main-img">
+                <div className="main-img-container">
                     <div className="previous"> {" < "} </div>
                     <img 
                         alt="main-img"
