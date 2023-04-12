@@ -4,10 +4,10 @@ import useToggle from './hooks/useToggle';
 import { ImagesSection } from './styles/Images.styled';
 
 export const images = [
+    'product-0.jpg',
     'product-1.jpg',
     'product-2.jpg',
-    'product-3.jpg',
-    'product-4.jpg'
+    'product-3.jpg'
 ];
 
 const Images: React.FC = () => {
@@ -25,7 +25,7 @@ const Images: React.FC = () => {
             <img 
                 alt="main-img"
                 onClick={() => setModal(true)}
-                src={src ? src : require("../assets/image-product-1.jpg")}
+                src={src ? src : require("../assets/image-product-0.jpg")}
             />
             <ul className="imageList">
                 {images?.map((img, index) => (

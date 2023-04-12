@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import useToggle from './hooks/useToggle';
 import { images } from "./Images";
 import { Main, ModalSection } from "./styles/Modal.styled";
 import { ReactComponent as CloseModal} from "../assets/icon-close.svg";
@@ -9,11 +10,10 @@ type ActiveModal = {
 };
 
 const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
-    const [src, setSrc] = useState<string>();
-    const [index, setIndex] = useState<number>(1);
+    const [number, setNumber] = useState<number>(0);
     const modalRef = useRef(null);
+    const { toggleEffect } = useToggle();  
 
-    // We can refactor
     useEffect(() => {
         let handler = (e: MouseEvent) => {
           if (!modalRef.current?.contains(e.target as Node)) {
@@ -23,55 +23,58 @@ const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
     
         document.addEventListener("mousedown", (e: MouseEvent) => handler(e));
     
-        return () =>
+        return () => {
           document.removeEventListener("mousedown", (e: MouseEvent) => handler(e));
+        }
     });
-
-  return (<Main style={{ display: modal ? "block" : "none"}}>
-    {modal ? (
-        <ModalSection ref={modalRef}>
-            <CloseModal
-                className="delete"
-                onClick={() => setModal(false)}
-            />
-                
-            <div className="main-img-container">
-                <div 
-                    className="previous"
-                    onClick={() => index > 1 ? setIndex(index - 1) : null}
-                > 
-                    {" < "}
-                </div>
-                <img 
-                    alt="main-img"
-                    src={src ? src : require(`../assets/image-product-${index}.jpg`)}
+    
+  return (
+    <Main style={{ display: modal ? "block" : "none"}}>
+        {modal ? (
+            <ModalSection ref={modalRef}>
+                <CloseModal
+                    className="delete"
+                    onClick={() => setModal(false)}
                 />
-                <div 
-                    className="next"
-                    onClick={() => index <= 3 ? setIndex(index + 1) : null}
-                >
-                    {" > "}
+                
+                <div className="main-img-container">
+                    <div 
+                        className="previous"
+                        onClick={() => number >= 1 ? setNumber(number - 1) : null}
+                    > 
+                        {" < "}
+                    </div>
+                    <img 
+                        alt="main-img"
+                        src={require(`../assets/image-product-${number}.jpg`)}
+                    />
+                    <div 
+                        className="next"
+                        onClick={() => number <= 2 ? setNumber(number + 1) : null}
+                    >
+                        {" > "}
+                    </div>
                 </div>
-            </div>
             
-            <ul>
-                {images?.map((img, index) => (
-                    <li key={index}>
-                        <img
-                            onClick={(event: React.MouseEvent<HTMLImageElement>) => {
-                                setSrc(event.currentTarget.src)
-                                setIndex(index);
-                            }}
-                            alt={`img-${index}`}
-                            src={require(`../assets/image-${img}`)}
-                        />
-                    </li>
-                ))}
-            </ul>
-        </ModalSection>
-    ) : null}
+                <ul className="modalImgs">
+                    {images?.map((img, index) => (
+                        <li key={index}>
+                            <img
+                                className="img-preview"
+                                alt={`img-${index}`}
+                                onClick={() => {
+                                    setNumber(index)
+                                    toggleEffect(index, "ul.modalImgs > li", "toggle-effect")
+                                }}
+                                src={require(`../assets/image-${img}`)}
+                            />
+                        </li>
+                    ))}
+                </ul>
+            </ModalSection>
+        ) : null}
     </Main>
   )
 }
 
-export default Modal;
+export default Modal

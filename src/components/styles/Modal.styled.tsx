@@ -1,13 +1,25 @@
-import styled from "styled-components";
+import styled, { keyframes }  from "styled-components";
+
+const testingImg = keyframes`
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: initial;
+    }
+`
+
 
 export const Main = styled.main`
+    animation: ${testingImg} 0.3s forwards;
     display: grid;
     grid-template-columns: 1fr;
     position: absolute;
     top: 0px;
     width: 100%;
     height: 100%;
-    background-color: #0f0f0f58;
+    background-color: #0f0f0fab;
     
     .delete {
         position: absolute;
@@ -47,6 +59,11 @@ export const Main = styled.main`
             font-size: 25px;
             font-weight: bold;
             color: black;
+            user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
 
             &:hover{
                 transition: 0.2s;
@@ -62,12 +79,6 @@ export const Main = styled.main`
             left: -30px;
         }
     }
-
-    img{
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
-    }
 ` 
 
 export const ModalSection = styled.section`
@@ -80,11 +91,28 @@ export const ModalSection = styled.section`
         margin-top: 40px;
         margin-bottom: 89px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
 
         li {
-            margin-left: 30px;
             cursor: pointer;
+            line-height: 0px;
+        }
+
+        .img-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+        }
+
+        .toggle-effect {
+            box-shadow: 0px 0px 0px 2px var(--orange);
+            transition: 0.4s;
+            border-radius: 10px;
+
+            .img-preview{
+                outline: 50px solid rgba(255, 255, 255, 0.700);
+                outline-offset: -100px;
+            }
         }
     }
 
