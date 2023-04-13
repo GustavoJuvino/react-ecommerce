@@ -10,7 +10,7 @@ type ActiveModal = {
 };
 
 const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
-    const [number, setNumber] = useState<number>(0);
+    const [imgIndex, setImgIndex] = useState<number>(0);
     const modalRef = useRef(null);
     const { toggleEffect } = useToggle();  
 
@@ -27,6 +27,10 @@ const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
           document.removeEventListener("mousedown", (e: MouseEvent) => handler(e));
         }
     });
+
+    useEffect(() => {
+        if(modal) toggleEffect(imgIndex, "ul.modalImgs > li", "toggle-effect")
+    }, [modal, toggleEffect, imgIndex])
     
   return (
     <Main style={{ display: modal ? "block" : "none"}}>
@@ -40,17 +44,17 @@ const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
                 <div className="main-img-container">
                     <div 
                         className="previous"
-                        onClick={() => number >= 1 ? setNumber(number - 1) : null}
+                        onClick={() => imgIndex >= 1 ? setImgIndex(imgIndex - 1) : null}
                     > 
                         {" < "}
                     </div>
                     <img 
                         alt="main-img"
-                        src={require(`../assets/image-product-${number}.jpg`)}
+                        src={require(`../assets/image-product-${imgIndex}.jpg`)}
                     />
                     <div 
                         className="next"
-                        onClick={() => number <= 2 ? setNumber(number + 1) : null}
+                        onClick={() => imgIndex <= 2 ? setImgIndex(imgIndex + 1) : null}
                     >
                         {" > "}
                     </div>
@@ -63,7 +67,7 @@ const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
                                 className="img-preview"
                                 alt={`img-${index}`}
                                 onClick={() => {
-                                    setNumber(index)
+                                    setImgIndex(index)
                                     toggleEffect(index, "ul.modalImgs > li", "toggle-effect")
                                 }}
                                 src={require(`../assets/image-${img}`)}

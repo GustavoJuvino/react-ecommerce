@@ -89,7 +89,6 @@ export const ModalSection = styled.section`
 
     ul {
         margin-top: 40px;
-        margin-bottom: 89px;
         display: flex;
         justify-content: space-between;
 
