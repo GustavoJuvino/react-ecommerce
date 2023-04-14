@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Cart from "./Cart";
 import { useDisplayCartContext } from './contexts/useDisplayCartContext';
-import { CounterContext, useCounterContext } from "./contexts/useCounterContext";
+import { useCounterContext } from "./contexts/useCounterContext";
 import useToggle from './hooks/useToggle';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as CartIcon } from '../assets/icon-cart.svg';
@@ -14,7 +14,7 @@ import {
 } from './styles/Header.styled';
 
 const Header: React.FC= () => {
-  const { activate, setActivate } = useDisplayCartContext();
+  const { display, setDisplay } = useDisplayCartContext();
   const { counter } = useCounterContext();
   const cartRef = useRef(null);
 
@@ -47,16 +47,17 @@ const Header: React.FC= () => {
         </nav>
 
         <UserContainer
-          borderColor={ activate ? "2px solid orange" : ""}
-          fillColor={ activate ? "black" : "#69707D"}
+          borderColor={ display ? "2px solid orange" : ""}
+          fillColor={ display ? "black" : "#69707D"}
         >
           <CartDiv id="cart-div" ref={cartRef}>
             <CartIcon
               className="Cart"
-              onClick={() => setActivate(!activate)}
+              onClick={() => setDisplay(!display)}
             />
+            <Cart cartRef={cartRef}/>
 
-            {counter > 0 ? <span>{counter}</span>: null}
+            {counter > 0 ? <span className="counter">{counter}</span>: null}
           </CartDiv>
 
           <img src={require('../assets/image-avatar.png')} alt="user" />
@@ -65,7 +66,6 @@ const Header: React.FC= () => {
 
       <div className="divider-div">
         <Divider />
-        <Cart cartRef={cartRef} />
       </div>
     </HeaderContainer>
   )

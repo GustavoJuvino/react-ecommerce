@@ -7,7 +7,7 @@ import { ButtonsDiv, Counter, CartButton } from "./styles/Buttons.styled";
 const Buttons: React.FC = () => {
   const [disabled, setDisabled] = useState(false);
   const { counter, setCounter } = useCounterContext();
-  const { setActivate } = useDisplayCartContext();
+  const { setDisplay } = useDisplayCartContext();
 
   useEffect(() => {
     if (disabled) {
@@ -31,7 +31,7 @@ const Buttons: React.FC = () => {
         disabled={disabled}
         onClick={() => {
           setDisabled(true);
-          if (counter > 0) setActivate(true);
+          if (counter > 0) setDisplay(true);
         }}
       >
         <CartIcon className="cart-icon" />

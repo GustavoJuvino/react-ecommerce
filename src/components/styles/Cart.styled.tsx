@@ -25,6 +25,7 @@ const itemEffect = keyframes`
 export const CartMenu = styled.div`
     animation: ${dropingMenu} 0.3s forwards;
     position: absolute;
+    top: 105px;
     right: 165px;
     width: 360px;
     height: 256px;

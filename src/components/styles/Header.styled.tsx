@@ -71,13 +71,13 @@ export const HeaderContent = styled.section`
 `
 
 export const UserContainer = styled.section<ExtraStyles>`
-     display: flex;
+    display: flex;
     
     .Cart {
       fill: ${props => props.fillColor};
     }
   
-    img {
+    img[alt="user"] {
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -109,7 +109,7 @@ export const CartDiv = styled.div`
         margin-top: 20px;
     }
 
-    span {
+    .counter {
         grid-row-start: 1;
         grid-column-start: 1;
         z-index: 2;

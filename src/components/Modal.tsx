@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import useToggle from './hooks/useToggle';
+import useClickOutside from "./hooks/useClickOutside";
 import { images } from "./Images";
 import { Main, ModalSection } from "./styles/Modal.styled";
 import { ReactComponent as CloseModal} from "../assets/icon-close.svg";
@@ -13,20 +14,11 @@ const Modal: React.FC<ActiveModal> = ({ modal, setModal }) => {
     const [imgIndex, setImgIndex] = useState<number>(0);
     const modalRef = useRef(null);
     const { toggleEffect } = useToggle();  
+    const { clickOutside } = useClickOutside();
 
     useEffect(() => {
-        let handler = (e: MouseEvent) => {
-          if (!modalRef.current?.contains(e.target as Node)) {
-            setModal(false)
-          }
-        };
-    
-        document.addEventListener("mousedown", (e: MouseEvent) => handler(e));
-    
-        return () => {
-          document.removeEventListener("mousedown", (e: MouseEvent) => handler(e));
-        }
-    });
+        clickOutside(modalRef, setModal);
+    }, []) 
 
     useEffect(() => {
         if(modal) toggleEffect(imgIndex, "ul.modalImgs > li", "toggle-effect")

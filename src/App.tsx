@@ -7,12 +7,12 @@ import { DisplayCartContext } from './components/contexts/useDisplayCartContext'
 
 const App: React.FC = () => {
   const [counter, setCounter] = React.useState(0);
-  const [activate, setActivate] = React.useState(false);
+  const [display, setDisplay] = React.useState(false);
 
   return (
     <section>
       <CounterContext.Provider  value= {{ counter, setCounter }}>
-        <DisplayCartContext.Provider value={{ activate, setActivate}}>
+        <DisplayCartContext.Provider value={{ display, setDisplay}}>
           <Header/>
           <Main />
         </DisplayCartContext.Provider>
