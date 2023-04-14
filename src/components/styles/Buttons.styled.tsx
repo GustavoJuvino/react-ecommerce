@@ -8,6 +8,10 @@ export const ButtonsDiv = styled.div`
     button:disabled {
         background-color: #FFAB6A;
     }
+
+    @media (max-width: 1330px) {
+        display: block;
+    }
 `
 export const Counter = styled.div`
     display: flex;
@@ -33,12 +37,17 @@ export const Counter = styled.div`
         font-weight: bold;
         color: black;
     }
+
+    @media (max-width: 1330px) {
+        width: 200px;
+    }
 `
 export const CartButton = styled.button`
     transition: 0.3s;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    margin-left: 10px;
     border: none;
     border-radius: 10px;
     width: 272px;
@@ -55,6 +64,12 @@ export const CartButton = styled.button`
     .cart-icon {
         fill: white;
         margin-right: 15px;
+    }
+
+    @media (max-width: 1330px) {
+        margin-top: 20px;
+        margin-left: 0px;
+        width: 200px;
     }
 
 `

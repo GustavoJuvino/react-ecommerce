@@ -5,11 +5,19 @@ export const MainContainer = styled.section`
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 125px;
     margin-top: 90px;
+
+    @media (max-width: 950px) {
+        grid-gap: 25px;
+    }
 `
 export const MainTexts = styled.section`
     width: 55%; 
     height: auto;
     text-align: left;
+
+    @media (max-width: 950px) {
+        width: 200px; 
+    }
     
     .logo-text {
         letter-spacing: 2px;
@@ -21,6 +29,10 @@ export const MainTexts = styled.section`
     h1 {
         font-size: 48px;
         margin-top: 24px;
+
+        @media (max-width: 1012px) {
+            font-size: 28px;
+        }
     }
 
     p {

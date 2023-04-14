@@ -33,6 +33,10 @@ export const CartMenu = styled.div`
     background-color: white;
     box-shadow: 0px 20px 50px -20px #1D2026;
 
+    @media (max-width: 1330px) {
+        right: 50px;
+    }
+
     h3, .empty-cart  {
         -webkit-user-select: none;
         -khtml-user-select: none;

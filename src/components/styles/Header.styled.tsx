@@ -23,6 +23,10 @@ export const HeaderContainer = styled.header`
         display: flex;
         flex-wrap: wrap
     }
+
+    @media (max-width: 1330px) {
+        margin: 0px 50px 0px 50px;
+    }
 `
 
 export const HeaderContent = styled.section`
@@ -43,6 +47,9 @@ export const HeaderContent = styled.section`
         display: flex;
         padding: 0px;
         margin-left: 56.5px;
+        @media (max-width: 950px) {
+            display: none;
+        }
 
         li {
             cursor: default;
@@ -130,4 +137,8 @@ export const Divider = styled.div`
     width: 100%;
     height: 3px;
     background-color: var(--light-grayish-blue);
+
+    @media (max-width: 1012px) {
+        display: none;
+    }
 `

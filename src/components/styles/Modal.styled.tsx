@@ -1,6 +1,6 @@
 import styled, { keyframes }  from "styled-components";
 
-const testingImg = keyframes`
+const modalEffect = keyframes`
     from {
         opacity: 0;
     }
@@ -12,7 +12,7 @@ const testingImg = keyframes`
 
 
 export const Main = styled.main`
-    animation: ${testingImg} 0.3s forwards;
+    animation: ${modalEffect} 0.3s forwards;
     display: grid;
     grid-template-columns: 1fr;
     position: absolute;
