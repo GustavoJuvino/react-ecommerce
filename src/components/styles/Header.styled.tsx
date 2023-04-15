@@ -34,20 +34,23 @@ export const HeaderContent = styled.section`
     justify-content: space-between;
     margin-top: 20px;
 
+    .Logo {
+        @media (max-width: 852px) {
+            margin-left: 50px;
+        }
+    }
+
     nav {
         margin-top: 15px;
         display: flex;
     }
 
-    .Logo {
-        cursor: pointer;
-    }
-
-    ul {
+    .headerList {
         display: flex;
         padding: 0px;
         margin-left: 56.5px;
-        @media (max-width: 950px) {
+        
+        @media (max-width: 852px) {
             display: none;
         }
 

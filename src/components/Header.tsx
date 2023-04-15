@@ -14,18 +14,18 @@ import {
   CartDiv
 } from './styles/Header.styled';
 
+export const headerElements = [
+  "Collections", 
+  "Men", 
+  "Women", 
+  "About", 
+  "Contact"
+];
+
 const Header: React.FC= () => {
   const { display, setDisplay } = useDisplayCartContext();
   const { counter } = useCounterContext();
   const cartRef = useRef(null);
-
-  const liElements = [
-    "Collections", 
-    "Men", 
-    "Women", 
-    "About", 
-    "Contact"
-  ];
 
   const { toggleEffect } = useToggle();  
 
@@ -41,7 +41,7 @@ const Header: React.FC= () => {
           <Logo className="Logo" />
 
           <ul className="headerList">
-            {liElements.map((element, index) => 
+            {headerElements.map((element, index) => 
               <li onClick={() => toggleEffect(index, "ul.headerList > li", "underline-effect")} key={index}>
                 {element}
               </li>

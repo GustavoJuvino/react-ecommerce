@@ -45,6 +45,7 @@ export const ImagesSection = styled.section`
     .toggle-effect {
         box-shadow: 0px 0px 0px 2px var(--orange);
         transition: 0.4s;
+
         .img-preview {
             opacity: 0.55;
         }

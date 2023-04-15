@@ -1,26 +1,46 @@
 import styled from "styled-components";
 
 export const MobileSection = styled.section`
+    display: none;
 
-    .active #hamburger{
-        border-top-color: transparent;
-        color: black;
+    &.active-menu {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: #0f0f0fab;
     }
 
-    .active #hamburger::before{
+    @media (max-width: 852px) {
+        display: block;
+    }
+
+    .active #hamburger {
+        color: black;
+        border-top-color: transparent;
+    }
+
+    .active #hamburger::before {
         transform: rotate(135deg);
     }
 
-    .active #hamburger::after{
+    .active #hamburger::after {
         transform: rotate(-135deg);
         top: -7px;
+    }
+
+    .mobile-active {
+        display: block;
     }
 `
 
 export const MobileButton = styled.button`
+    position: absolute;
+    z-index: 6;
     display: flex;
-    margin-right: 16px;
-    margin-top: 2px;
+    top: 38px;
+    left: 50px;
     font-size: 1rem;
     border: none;
     background: none;
@@ -42,5 +62,30 @@ export const MobileButton = styled.button`
         margin-top: 5px;
         transition: .3s;
         position: relative;
+    }
+    
+`
+
+export const MobileMenu = styled.section`
+    display: none;
+    position: absolute;
+    width: 400px;
+    height: 100vh;
+    top: 0px;
+    z-index: 4;
+    background-color: white;
+
+
+    ul {
+        font-size: 22px;
+        font-weight: bold;
+        padding-top: 85px;
+        margin-left: 50px;
+
+        li {
+            width: 100px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
     }
 `
