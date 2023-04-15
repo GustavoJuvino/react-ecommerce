@@ -34,13 +34,13 @@ export const HeaderContent = styled.section`
     justify-content: space-between;
     margin-top: 20px;
 
-    .Logo {
-        cursor: pointer;
-    }
-    
     nav {
         margin-top: 15px;
         display: flex;
+    }
+
+    .Logo {
+        cursor: pointer;
     }
 
     ul {

@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import Cart from "./Cart";
 import { useDisplayCartContext } from './contexts/useDisplayCartContext';
 import { useCounterContext } from "./contexts/useCounterContext";
 import useToggle from './hooks/useToggle';
+import Cart from "./Cart";
+import Mobile from "./Mobile";
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as CartIcon } from '../assets/icon-cart.svg';
 import {
@@ -36,7 +37,9 @@ const Header: React.FC= () => {
     <HeaderContainer>
       <HeaderContent>
         <nav>
+          <Mobile />
           <Logo className="Logo" />
+
           <ul className="headerList">
             {liElements.map((element, index) => 
               <li onClick={() => toggleEffect(index, "ul.headerList > li", "underline-effect")} key={index}>
@@ -51,15 +54,10 @@ const Header: React.FC= () => {
           fillColor={ display ? "black" : "#69707D"}
         >
           <CartDiv id="cart-div" ref={cartRef}>
-            <CartIcon
-              className="Cart"
-              onClick={() => setDisplay(!display)}
-            />
-            <Cart cartRef={cartRef}/>
-
+            <CartIcon className="Cart" onClick={() => setDisplay(!display)} />
+            <Cart cartRef={cartRef} />
             {counter > 0 ? <span className="counter">{counter}</span>: null}
           </CartDiv>
-
           <img src={require('../assets/image-avatar.png')} alt="user" />
         </UserContainer>
       </HeaderContent>
