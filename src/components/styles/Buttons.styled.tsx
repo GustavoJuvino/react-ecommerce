@@ -41,6 +41,10 @@ export const Counter = styled.div`
     @media (max-width: 1330px) {
         width: 200px;
     }
+
+    @media (max-width: 630px) {
+        width: 100%;
+    }
 `
 export const CartButton = styled.button`
     transition: 0.3s;
@@ -70,6 +74,10 @@ export const CartButton = styled.button`
         margin-top: 20px;
         margin-left: 0px;
         width: 200px;
+    }
+
+    @media (max-width: 630px) {
+        width: 100%;
     }
 
 `

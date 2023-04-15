@@ -10,7 +10,6 @@ const modalEffect = keyframes`
     }
 `
 
-
 export const Main = styled.main`
     animation: ${modalEffect} 0.3s forwards;
     display: grid;
@@ -20,6 +19,10 @@ export const Main = styled.main`
     width: 100%;
     height: 100%;
     background-color: #0f0f0fab;
+
+    @media (max-width: 630px) {
+        background-color: none;
+    }
     
     .delete {
         position: absolute;
@@ -86,6 +89,10 @@ export const ModalSection = styled.section`
     top: 50%;  
     left: 50%; 
     transform: translate(-50%, -50%);
+
+    @media (max-width: 630px) {
+        display: none;
+    }
 
     ul {
         margin-top: 40px;

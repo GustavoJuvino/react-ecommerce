@@ -23,7 +23,7 @@ export const ImagesSection = styled.section`
             line-height: 0px;
             border-radius: 10px;
 
-            @media (max-width: 950px) {
+            @media (max-width: 630px) {
                 display: none;
             }
         }
@@ -52,8 +52,15 @@ export const ImagesSection = styled.section`
         }
 
         @media (max-width: 630px) {
+            cursor: auto;
             width: 400px;
             height: 350px;
+        }
+
+        @media (max-width: 516px) {
+            width: 100%;
+            height: auto;
+            border-radius: 0px;
         }
     }
 

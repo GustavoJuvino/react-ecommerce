@@ -19,12 +19,20 @@ const Images: React.FC = () => {
         toggleEffect(0, "ul.imageList > li", "toggle-effect");
       }, [toggleEffect])
 
+      if(window.innerWidth >= 640){
+        console.log(true)
+      } else {
+        console.log(false)
+      }
+
   return (
     <>
         <ImagesSection>
             <img 
                 alt="main-img"
-                onClick={() => setModal(true)}
+                onClick={() => {
+                    if(window.innerWidth >= 640) setModal(true)
+                }}
                 src={src ? src : require("../assets/image-product-0.jpg")}
             />
             <ul className="imageList">

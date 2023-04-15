@@ -25,6 +25,7 @@ const itemEffect = keyframes`
 export const CartMenu = styled.div`
     animation: ${dropingMenu} 0.3s forwards;
     position: absolute;
+    z-index: 5;
     top: 105px;
     right: 165px;
     width: 360px;
@@ -35,6 +36,15 @@ export const CartMenu = styled.div`
 
     @media (max-width: 1330px) {
         right: 50px;
+    }
+
+    @media (max-width: 630px) {
+        margin-left: auto;
+        margin-right: auto;
+        top: 100px;
+        left: 0;
+        right: 0;
+        text-align: center;
     }
 
     h3, .empty-cart  {
@@ -85,7 +95,6 @@ export const Item = styled.section`
     animation: ${itemEffect} 0.8s forwards;
     display: flex;
     margin: 24px 24px 0px 24px;
-    align-items: center;
     
     img {
         width: 50px;

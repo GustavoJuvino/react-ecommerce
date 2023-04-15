@@ -79,12 +79,19 @@ export const MobileMenu = styled.section`
     z-index: 4;
     background-color: white;
 
+    @media (max-width: 515px) {
+        width: 100%;
+    }
 
     ul {
         font-size: 22px;
         font-weight: bold;
         padding-top: 85px;
         margin-left: 50px;
+
+        @media (max-width: 515px) {
+            margin-left: 30px;
+        }
 
         li {
             width: 100px;

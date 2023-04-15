@@ -15,6 +15,61 @@ export const MainContainer = styled.section`
         margin-top: 20px;
     }
 `
+export const MainImages = styled.section`
+    .next, .previous {
+        display: none;
+    }
+
+    @media (max-width: 630px) {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+
+        .next, .previous {
+            display: block;
+            cursor: pointer;
+            width: 56px;
+            height: 56px;
+            background-color: #ededed;
+            border-radius: 50%;
+            align-self: center;
+            padding-top: 9px;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: black;
+            user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+
+            @media (max-width: 516px) {
+                position: absolute;
+            }
+
+            &:hover{
+                transition: 0.2s;
+                color: var(--orange);
+            }
+        }
+
+        .next {
+            right: 30px;
+            @media (max-width: 516px) {
+                right: 0px;
+            }
+        }
+
+        .previous {
+            left: 30px;
+            @media (max-width: 516px) {
+                left: 0px;
+            }
+        }
+    }
+`
+
 export const MainTexts = styled.section`
     width: 55%; 
     height: auto;
@@ -43,6 +98,10 @@ export const MainTexts = styled.section`
         @media (max-width: 1012px) {
             font-size: 28px;
         }
+
+        @media (max-width: 516px) {
+            font-size: 24px;
+        }
     }
 
     p {
@@ -50,6 +109,11 @@ export const MainTexts = styled.section`
         font-size: 16px;
         line-height: 26px;
         color: var(--dark-grayish-blue);
+
+        @media (max-width: 516px) {
+            margin-top: 20px;
+            font-size: 14px;
+        }
     }
 
     .price {
@@ -59,6 +123,9 @@ export const MainTexts = styled.section`
             align-items: center;
             margin-top: 24px;
             font-size: 28px;
+            @media (max-width: 516px) {
+                font-size: 24px;
+            }
         }
 
         .old-price{

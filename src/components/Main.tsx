@@ -1,12 +1,20 @@
 import React from 'react';
 import Buttons from './Buttons';
 import Images from './Images';
-import { MainContainer, MainTexts, Offer } from './styles/Main.styled';
+import { MainContainer, MainImages, MainTexts, Offer } from './styles/Main.styled';
 
 const Main: React.FC = () => {
   return (
     <MainContainer>
-      <Images />
+      <MainImages>
+        <div className="previous"> 
+          {" < "}
+        </div>
+        <Images />
+        <div className="next"> 
+          {" > "}
+        </div>
+      </MainImages>
       <MainTexts>
         <span className="logo-text">SNEAKER COMPANY</span>
         <h1>Fall Limited Edition Sneakers</h1>
