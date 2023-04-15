@@ -7,6 +7,12 @@ export const ImagesSection = styled.section`
         margin-left: 50px;
     }
 
+    @media (max-width: 630px) {
+        text-align: center;
+        margin: 0px;
+    }
+
+    
     ul {
         display: flex;
         padding: 0px;
@@ -16,6 +22,10 @@ export const ImagesSection = styled.section`
             margin: 32px 31px 0px 0px;
             line-height: 0px;
             border-radius: 10px;
+
+            @media (max-width: 950px) {
+                display: none;
+            }
         }
     }
 
@@ -39,6 +49,11 @@ export const ImagesSection = styled.section`
         @media (max-width: 950px) {
             width: 325px;
             height: 325px;
+        }
+
+        @media (max-width: 630px) {
+            width: 400px;
+            height: 350px;
         }
     }
 

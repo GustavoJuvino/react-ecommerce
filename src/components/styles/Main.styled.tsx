@@ -9,6 +9,11 @@ export const MainContainer = styled.section`
     @media (max-width: 950px) {
         grid-gap: 25px;
     }
+
+    @media (max-width: 630px) {
+        display: block;
+        margin-top: 20px;
+    }
 `
 export const MainTexts = styled.section`
     width: 55%; 
@@ -17,6 +22,11 @@ export const MainTexts = styled.section`
 
     @media (max-width: 950px) {
         width: 200px; 
+    }
+
+    @media (max-width: 630px) {
+        margin: 20px 24px 0px 24px;
+        width: 65%;
     }
     
     .logo-text {
@@ -42,18 +52,33 @@ export const MainTexts = styled.section`
         color: var(--dark-grayish-blue);
     }
 
-    h2 {
-        display: flex;
-        align-items: center;
-        margin-top: 24px;
-        font-size: 28px;
+    .price {
+
+        h2 {
+            display: flex;
+            align-items: center;
+            margin-top: 24px;
+            font-size: 28px;
+        }
+
+        .old-price{
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--grayish-blue);
+
+            @media (max-width: 630px) {
+                margin-top: 30px;
+                text-align: end;
+            }
+        }
+
+        @media (max-width: 630px) {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
-    .old-price{
-        margin-top: 10px;
-        font-weight: bold;
-        color: var(--grayish-blue);
-    }
+
 `
 
 export const Offer = styled.div`

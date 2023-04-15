@@ -46,6 +46,10 @@ export const MobileButton = styled.button`
     background: none;
     cursor: pointer;
 
+    @media (max-width: 630px) {
+        left: 24px;
+    }
+
     #hamburger {
         color: #69707D;
         display: block;

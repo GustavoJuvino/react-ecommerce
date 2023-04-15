@@ -27,6 +27,10 @@ export const HeaderContainer = styled.header`
     @media (max-width: 1330px) {
         margin: 0px 50px 0px 50px;
     }
+
+    @media (max-width: 630px) {
+        margin-right: 24px;
+    }
 `
 
 export const HeaderContent = styled.section`
@@ -37,6 +41,10 @@ export const HeaderContent = styled.section`
     .Logo {
         @media (max-width: 852px) {
             margin-left: 50px;
+        }
+
+        @media (max-width: 630px) {
+            margin-left: 16px;
         }
     }
 

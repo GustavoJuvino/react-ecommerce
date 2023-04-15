@@ -15,13 +15,15 @@ const Main: React.FC = () => {
           Featuring a durable rubber outer sole, they’ll withstand everything
           the weather can offer.
         </p>
-        <h2>
-          $125.00 <Offer>50%</Offer>
-        </h2>
-        <p className="old-price">
-          <del>$250.00</del>
-        </p>
 
+        <div className="price">
+          <h2>
+            $125.00 <Offer>50%</Offer>
+          </h2>
+          <p className="old-price">
+            <del>$250.00</del>
+          </p>
+        </div>
         <Buttons />
       </MainTexts>
     </MainContainer>
