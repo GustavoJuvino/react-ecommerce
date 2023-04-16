@@ -18,7 +18,7 @@
 <div align="center">
     <img src="https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg" width=60px height=60px alt="React" />
     <img src="https://www.svgrepo.com/show/374146/typescript-official.svg" width=60px height=60px alt="TypeScript" />
-    <img src="https://www.svgrepo.com/svg/306811/styled-components" width=60px height=60px alt="StyledComponents" />
+    <img src="https://www.svgrepo.com/show/306811/styled-components.svg" width=60px height=60px alt="StyledComponents" />
 </div>
 
 <br><br>
