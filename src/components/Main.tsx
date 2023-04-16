@@ -1,17 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Buttons from './Buttons';
 import Images from './Images';
 import { MainContainer, MainImages, MainTexts, Offer } from './styles/Main.styled';
 
 const Main: React.FC = () => {
+  const [mainIndex, setMainIndex] = useState<number>(0);
+
   return (
     <MainContainer>
       <MainImages>
-        <div className="previous"> 
+        <div 
+          className="previous"
+          onClick={() => mainIndex >= 1 ? setMainIndex(mainIndex - 1) : null}
+        > 
           {" < "}
         </div>
-        <Images />
-        <div className="next"> 
+        <Images index={mainIndex} />
+        <div 
+          className="next"
+          onClick={() => mainIndex <= 2 ? setMainIndex(mainIndex + 1) : null}
+        > 
           {" > "}
         </div>
       </MainImages>

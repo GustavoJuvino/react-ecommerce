@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { headerElements } from "./Header";
 import useClickOutside from "./hooks/useClickOutside";
 import { MobileSection, MobileButton, MobileMenu } from "./styles/Mobile.style";
 
-const Mobile = () => {
+const Mobile: React.FC  = () => {
   const [mobileBtn, setMobileBtn] = useState<boolean>(false);
   const menuRef = useRef(null);
   const { clickOutside } = useClickOutside();
